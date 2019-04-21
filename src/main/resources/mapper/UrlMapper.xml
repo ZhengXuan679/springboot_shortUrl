@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般定义为 包名+文件名 -->
+<mapper namespace="cn.zhengxuan.pojo.UrlMapper">
+        <insert id="insert_shortUrl" parameterType="cn.zhengxuan.pojo.Url">
+            insert into url(longUrl,shortUrl,length,keyword) values (#{longUrl},#{shortUrl},#{length},#{keyword})
+        </insert>
+
+       <select id="longurl" parameterType="java.lang.String" resultType="java.lang.String">
+          select longUrl from url where shortUrl=#{arg0}
+       </select>
+</mapper>
